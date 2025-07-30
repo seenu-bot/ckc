@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "cra-template-pwa-typescript": "2.0.0",
+    "@mediapipe/face_mesh": "^0.4.1633559619",
+    "@mediapipe/pose": "^0.5.1675469404",
+    "face-api.js": "^0.22.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-scripts": "5.0.1",
@@ -35,6 +37,6 @@
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^5.62.0",
-    "typescript": "^5.8.3"
+    "typescript": "^4.9.5"
   }
 }

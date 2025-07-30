@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "@mediapipe/face_mesh": "^0.4.1633559619",
+    "@mediapipe/pose": "^0.5.1675469404",
     "face-api.js": "^0.22.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
   }
 }

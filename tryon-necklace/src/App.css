@@ -1,63 +1,316 @@
+body {
+  background: linear-gradient(135deg, #fffbe6 0%, #f5e6ff 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
 .App {
   text-align: center;
+  padding: 32px 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: #222;
+  margin-bottom: 0.2em;
+  letter-spacing: 2px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tagline {
+  color: #bfa14a;
+  font-size: 1.2rem;
+  margin-bottom: 2em;
+  font-style: italic;
 }
 
 .upload-section {
-  margin: 24px 0;
+  background: #fff;
+  border: 2px dashed #bfa14a;
+  border-radius: 18px;
+  padding: 32px 24px;
+  margin: 0 auto 32px auto;
+  max-width: 400px;
+  box-shadow: 0 4px 24px rgba(191, 161, 74, 0.08);
+  transition: box-shadow 0.3s;
+}
+.upload-section:hover {
+  box-shadow: 0 8px 32px rgba(191, 161, 74, 0.16);
+}
+.upload-section input[type="file"] {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #bfa14a;
 }
 
 .tryon-section {
-  margin: 24px 0;
+  margin: 32px auto;
   position: relative;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(191, 161, 74, 0.10);
+  padding: 24px 0 16px 0;
+}
+.tryon-section canvas {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(191, 161, 74, 0.10);
+  background: #f8f6f2;
 }
 
 .necklace-catalog {
-  margin: 32px 0;
+  margin: 40px 0 24px 0;
+}
+.necklace-catalog h2 {
+  color: #222;
+  font-size: 1.4rem;
+  margin-bottom: 1em;
+  font-weight: 600;
 }
 
 .necklace-list {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 18px;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #bfa14a #f8f6f2;
+}
+.necklace-list::-webkit-scrollbar {
+  height: 8px;
+}
+.necklace-list::-webkit-scrollbar-thumb {
+  background: #bfa14a;
+  border-radius: 8px;
 }
 
+.necklace-list img {
+  width: 110px;
+  height: 66px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #f8f6f2;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 8px rgba(191, 161, 74, 0.08);
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.necklace-list img:hover {
+  border: 2px solid #bfa14a;
+  box-shadow: 0 4px 16px rgba(191, 161, 74, 0.18);
+  transform: scale(1.04);
+}
 .necklace-list img.selected {
-  border: 2px solid #61dafb;
-  box-shadow: 0 0 8px #61dafb;
+  border: 2.5px solid #bfa14a;
+  box-shadow: 0 0 12px #bfa14a44;
+  transform: scale(1.07);
+}
+
+.button-download {
+  margin-top: 18px;
+  background: linear-gradient(90deg, #bfa14a 0%, #f5e6ff 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  box-shadow: 0 2px 8px rgba(191, 161, 74, 0.10);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.button-download:hover {
+  background: linear-gradient(90deg, #bfa14a 0%, #e6c97a 100%);
+  box-shadow: 0 4px 16px rgba(191, 161, 74, 0.18);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.main-row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  margin: 24px auto 0 auto;
+  max-width: 900px;
+}
+
+.upload-section {
+  border: 1.5px dashed #bfa14a;
+  min-width: 180px;
+  max-width: 220px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.tryon-section {
+  min-width: 260px;
+  max-width: 280px;
+  padding: 16px 0 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tryon-section canvas {
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(191, 161, 74, 0.08);
+  background: #f8f6f2;
+  width: 200px !important;
+  height: 250px !important;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.necklace-catalog {
+  min-width: 180px;
+  max-width: 220px;
+  align-self: flex-start;
+  padding-top: 8px;
+}
+
+.necklace-catalog h2 {
+  color: #222;
+  font-size: 1.1rem;
+  margin-bottom: 0.7em;
+  font-weight: 600;
+}
+
+.necklace-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  overflow-y: auto;
+  max-height: 320px;
+  padding-right: 4px;
+}
+
+.necklace-list img {
+  width: 80px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f8f6f2;
+  border: 2px solid transparent;
+  box-shadow: 0 1px 4px rgba(191, 161, 74, 0.07);
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.necklace-list img:hover {
+  border: 2px solid #bfa14a;
+  box-shadow: 0 2px 8px rgba(191, 161, 74, 0.13);
+  transform: scale(1.04);
+}
+.necklace-list img.selected {
+  border: 2.5px solid #bfa14a;
+  box-shadow: 0 0 8px #bfa14a44;
+  transform: scale(1.07);
+}
+
+.button-download {
+  margin-top: 8px;
+  background: linear-gradient(90deg, #bfa14a 0%, #f5e6ff 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 20px;
+  box-shadow: 0 1px 4px rgba(191, 161, 74, 0.08);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.button-download:hover {
+  background: linear-gradient(90deg, #bfa14a 0%, #e6c97a 100%);
+  box-shadow: 0 2px 8px rgba(191, 161, 74, 0.13);
+  transform: translateY(-1px) scale(1.03);
+}
+
+@media (max-width: 900px) {
+  .main-row-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin: 12px auto 0 auto;
+  }
+  .upload-section, .tryon-section, .necklace-catalog {
+    max-width: 98vw;
+    min-width: 0;
+    padding: 12px 2vw;
+  }
+  .tryon-section canvas {
+    width: 90vw !important;
+    height: auto !important;
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .App {
+    padding: 8px 0;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.1em;
+  }
+  .tagline {
+    font-size: 1rem;
+    margin-bottom: 1.5em;
+  }
+  .main-row-container {
+    gap: 12px;
+    margin: 8px auto 0 auto;
+  }
+  .upload-section, .tryon-section, .necklace-catalog {
+    padding: 10px 3vw;
+    border-radius: 12px;
+  }
+  .tryon-section canvas {
+    width: 85vw !important;
+    max-width: 85vw;
+  }
+  .necklace-list {
+    flex-direction: row;
+    overflow-x: auto;
+    max-height: none;
+    gap: 10px;
+    padding-bottom: 4px;
+  }
+  .necklace-list img {
+    width: 70px;
+    height: 42px;
+    flex-shrink: 0;
+  }
+  .button-download {
+    font-size: 0.9rem;
+    padding: 6px 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  .tagline {
+    font-size: 0.9rem;
+  }
+  .upload-section, .tryon-section, .necklace-catalog {
+    padding: 8px 4vw;
+  }
+  .tryon-section canvas {
+    width: 80vw !important;
+    max-width: 80vw;
+  }
+  .necklace-list img {
+    width: 60px;
+    height: 36px;
+  }
 }
